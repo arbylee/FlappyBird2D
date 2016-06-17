@@ -3,8 +3,7 @@ using System.Collections;
 
 public class PipeSpawner : MonoBehaviour {
 	public GameObject pipesPrefab;
-	private float timeBetweenSpawns = 1f;
-	private Vector2 spawnPosition = new Vector2(9.5f, 0);
+	private float timeBetweenSpawns = 2f;
 	void Start () {
 		StartCoroutine (DelayedSpawnPipes ());
 	}
@@ -17,6 +16,8 @@ public class PipeSpawner : MonoBehaviour {
 	}
 
 	void SpawnPipes() {
+		float y = Random.Range (-3f, 3f);
+		Vector2 spawnPosition = new Vector2(9.5f, y);
 		Instantiate (pipesPrefab, spawnPosition, Quaternion.identity);
 	}
 }
